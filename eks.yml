@@ -1,17 +1,18 @@
 ---
-- hosts: k8s_node
+- hosts: all
   gather_facts: false
   # connection: local
   become: true
 
   tasks:
-  - name: eks script
+  - name: run on master and worker
     script: "./update.sh"
-    #register: result
 
-  - name: eks script2
+
+  - name: run on master
     script: "./script2.sh"
     register: result
+    delegate_to: master
 
   # - name: test
   #   command: "apt install wget -y"
