@@ -1,6 +1,7 @@
 ---
 - hosts: k8s_node
   gather_facts: false
+  sudo yes
   become: true
 
   tasks:
