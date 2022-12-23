@@ -1,0 +1,19 @@
+---
+- hosts: k8s_node
+  gather_facts: false
+  # connection: local
+  become: true
+
+  tasks:
+  - name: apt update
+    script: "./update.sh"
+    register: result
+
+  # - name: test
+  #   command: "apt install wget -y"
+  #   register: result
+
+  - name: print output
+    debug:
+      var: result
+  
