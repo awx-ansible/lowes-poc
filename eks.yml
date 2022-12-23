@@ -5,17 +5,9 @@
   become: true
 
   tasks:
-  - name: eks script
+  - name: Apt update
     script: "./update.sh"
-    #register: result
-
-  - name: eks script2
-    script: "./script2.sh"
     register: result
-
-  # - name: test
-  #   command: "apt install wget -y"
-  #   register: result
 
   - name: print output
     debug:
